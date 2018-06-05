@@ -1,6 +1,5 @@
 ---
 - hosts: "{{ target | default('localhost') }}"
-  become: yes
   sudo: yes
   roles:
     - oracle-java
