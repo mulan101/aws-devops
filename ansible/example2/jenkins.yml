@@ -1,8 +1,9 @@
 ---
 - hosts: "{{ target | default('localhost') }}"
-  sudo: yes
   roles:
-    - oracle-java
-    - jenkins
-    - nodejs
+    - role: oracle-java
+    - role: jenkins
+      become: yes
+    - role: nodejs
+      become: yes
     
