@@ -9,12 +9,12 @@
   debug: "msg={{java_installed.stdout}}"
 
 - block:  
-- name: Download Java
-  #command: "wget -q -O {{java_archive}} --no-check-certificate --no-cookies --header 'Cookie: oraclelicense=accept-securebackup-cookie' {{download_url}} creates={{java_archive}}" ## Old way to download
-  get_url:
-    url: "{{download_url}}"
-    dest: "{{java_archive}}"
-    headers: 'Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie; --no-check-certificate'     
+  - name: Download Java
+    #command: "wget -q -O {{java_archive}} --no-check-certificate --no-cookies --header 'Cookie: oraclelicense=accept-securebackup-cookie' {{download_url}} creates={{java_archive}}" ## Old way to download
+    get_url:
+      url: "{{download_url}}"
+      dest: "{{java_archive}}"
+      headers: 'Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie; --no-check-certificate'     
 
 - name: Unpack archive
   #command: "tar -zxf {{java_archive}} -C {{download_folder}} creates={{java_name}}" ## Old way to untar
